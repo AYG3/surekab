@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Safekab Brand Colors */
+@theme {
+  --color-primary: #1E3A8A;
+  --color-primary-dark: #1e3a8aeb;
+  --color-accent: #F97316;
+  --color-accent-dark: #ea580c;
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+/* Custom animations */
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes blob {
+    0%, 100% { 
+      transform: translate(0, 0) scale(1); 
+    }
+    33% { 
+      transform: translate(30px, -50px) scale(1.1); 
+    }
+    66% { 
+      transform: translate(-20px, 20px) scale(0.9); 
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
