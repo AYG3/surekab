@@ -4,7 +4,7 @@ import { SectionWrapper } from './SectionWrapper';
 
 /**
  * Solution Overview Section Component
- * 5-step journey showing how Safekab protects users
+ * 5-step journey showing how Echos protects users
  */
 export const SolutionSection: React.FC = () => {
   const steps = [
@@ -13,35 +13,45 @@ export const SolutionSection: React.FC = () => {
       icon: <Play className="w-6 h-6" />,
       title: 'Start Your Trip',
       description: 'Initiate trip tracking manually when you begin your journey—complete user control.',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-500 to-blue-600',
+      image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80',
+      imageAlt: 'Person beginning a road journey'
     },
     {
       number: '02',
       icon: <Users className="w-6 h-6" />,
       title: 'Share with Trusted Contacts',
       description: 'Your selected family members or institution security team see your live journey.',
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-purple-500 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+      imageAlt: 'Group of trusted contacts on their phones'
     },
     {
       number: '03',
       icon: <Route className="w-6 h-6" />,
       title: 'Smart Monitoring',
       description: 'AI-powered route tracking with automatic deviation detection and smart alerts.',
-      color: 'from-indigo-500 to-indigo-600'
+      color: 'from-indigo-500 to-indigo-600',
+      image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&q=80',
+      imageAlt: 'Navigation map with route tracking'
     },
     {
       number: '04',
       icon: <Bell className="w-6 h-6" />,
       title: 'Emergency SOS',
       description: 'One-tap panic button instantly alerts your entire safety network with your location.',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-orange-500 to-orange-600',
+      image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&q=80',
+      imageAlt: 'Emergency response and alert system'
     },
     {
       number: '05',
       icon: <FileText className="w-6 h-6" />,
       title: 'Trip Evidence',
       description: 'Secure, verifiable journey records and logs for accountability and peace of mind.',
-      color: 'from-green-500 to-green-600'
+      color: 'from-green-500 to-green-600',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',
+      imageAlt: 'Secure trip records and documents'
     }
   ];
 
@@ -50,7 +60,7 @@ export const SolutionSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            How Safekab <span className="text-accent">Protects Your Journey</span>
+            How Echos <span className="text-accent">Protects Your Journey</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             A simple, powerful 5-step system designed for African urban mobility
@@ -81,10 +91,22 @@ export const SolutionSection: React.FC = () => {
               <div className="flex-1 flex justify-center">
                 <div className="relative w-full max-w-md">
                   <div className={`bg-linear-to-br ${step.color} opacity-10 absolute inset-0 rounded-3xl blur-2xl`}></div>
-                  <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-                    <div className="aspect-square bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center">
-                      <div className={`bg-linear-to-br ${step.color} w-20 h-20 rounded-full flex items-center justify-center animate-pulse`}>
-                        <div className="text-white scale-150">{step.icon}</div>
+                  <div className="relative bg-white p-4 rounded-3xl shadow-xl border border-gray-100">
+                    {/* Step image */}
+                    <div className="relative rounded-2xl overflow-hidden">
+                      <img
+                        src={step.image}
+                        alt={step.imageAlt}
+                        className="w-full h-56 object-cover"
+                        loading="lazy"
+                      />
+                      {/* Gradient overlay for readability */}
+                      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
+                      {/* Step icon badge on top of image */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                        <div className={`bg-linear-to-br ${step.color} w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg ring-4 ring-white/30 animate-pulse`}>
+                          <div className="text-white scale-125">{step.icon}</div>
+                        </div>
                       </div>
                     </div>
                   </div>

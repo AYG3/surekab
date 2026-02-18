@@ -1,5 +1,6 @@
 import React from 'react';
-import { Shield, Twitter, Linkedin, Instagram, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Mail } from 'lucide-react';
+import echosLogo from '/echos-logo.png';
 
 /**
  * Footer Component
@@ -27,9 +28,9 @@ export const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com/safekab', label: 'Twitter' },
-    { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com/company/safekab', label: 'LinkedIn' },
-    { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/safekab', label: 'Instagram' }
+    { icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com/echosapp', label: 'Twitter' },
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com/company/echosapp', label: 'LinkedIn' },
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/echosapp', label: 'Instagram' }
   ];
 
   return (
@@ -39,10 +40,7 @@ export const Footer: React.FC = () => {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-accent p-2 rounded-lg">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold">Safekab</span>
+              <img src={echosLogo} alt="Echos" className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">
               Journey safety infrastructure for Africa. Real-time monitoring, emergency response, and peace of mind for every trip.
@@ -54,8 +52,8 @@ export const Footer: React.FC = () => {
             {/* Contact */}
             <div className="mt-6 flex items-center gap-2 text-gray-400 hover:text-accent transition-colors">
               <Mail className="w-5 h-5" />
-              <a href="mailto:hello@safekab.com" className="hover:underline">
-                hello@safekab.com
+              <a href="mailto:hello@echos.app" className="hover:underline">
+              hello@echos.app
               </a>
             </div>
           </div>
@@ -114,7 +112,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Safekab. All rights reserved.
+              © {currentYear} Echos. All rights reserved.
             </p>
             
             {/* Social links */}

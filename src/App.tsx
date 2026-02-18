@@ -11,7 +11,7 @@ import { Footer } from './components/Footer';
 
 /**
  * Main App Component
- * Orchestrates all sections of the Safekab waitlist landing page
+ * Orchestrates all sections of the Echos waitlist landing page
  * 
  * Architecture:
  * - Modular component structure for maintainability

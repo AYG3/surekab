@@ -1,7 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Shield, ChevronRight } from 'lucide-react';
+import { Shield, ChevronRight } from 'lucide-react';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { Button } from './Button';
+
+// Fix Leaflet default marker icon broken by bundlers
+delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
 
 interface HeroSectionProps {
   onJoinWaitlist: () => void;
@@ -115,13 +126,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinWaitlist }) => {
                     </div>
                   </div>
 
-                  {/* Map preview */}
-                  <div className="h-48 bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                    <MapPin className="w-12 h-12 text-accent animate-bounce" />
-                    <div className="absolute top-4 right-4">
-                      <div className="w-16 h-16 bg-primary/20 rounded-full animate-ping"></div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 bg-white px-3 py-2 rounded-lg shadow-md text-xs font-semibold">
+                  {/* Live map */}
+                  <div className="h-48 rounded-2xl overflow-hidden relative">
+                    <MapContainer
+                      center={[6.5244, 3.3792]}
+                      zoom={13}
+                      scrollWheelZoom={false}
+                      zoomControl={false}
+                      dragging={false}
+                      style={{ height: '100%', width: '100%' }}
+                      attributionControl={false}
+                    >
+                      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                      <Marker position={[6.5244, 3.3792]}>
+                        <Popup>Active Trip – Lagos</Popup>
+                      </Marker>
+                      <Circle
+                        center={[6.5244, 3.3792]}
+                        radius={600}
+                        pathOptions={{ color: '#1E3A8A', fillColor: '#1E3A8A', fillOpacity: 0.1 }}
+                      />
+                    </MapContainer>
+                    <div className="absolute bottom-3 left-3 z-[400] bg-white px-3 py-2 rounded-lg shadow-md text-xs font-semibold pointer-events-none">
                       📍 5 min away
                     </div>
                   </div>

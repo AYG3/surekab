@@ -39,7 +39,7 @@ export const AudienceSection: React.FC = () => {
             Who We're <span className="text-primary">Building For</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Safekab is designed for the Nigerian mobility ecosystem
+            Echos is designed for the Nigerian mobility ecosystem
           </p>
         </div>
 

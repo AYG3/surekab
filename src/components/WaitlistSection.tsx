@@ -119,14 +119,14 @@ export const WaitlistSection: React.FC = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // Save to localStorage
-    const existingData = JSON.parse(localStorage.getItem('safekab_waitlist') || '[]');
+    const existingData = JSON.parse(localStorage.getItem('echos_waitlist') || '[]');
     const newEntry = {
       ...values,
       timestamp: new Date().toISOString(),
       id: Date.now()
     };
     existingData.push(newEntry);
-    localStorage.setItem('safekab_waitlist', JSON.stringify(existingData));
+    localStorage.setItem('echos_waitlist', JSON.stringify(existingData));
 
     setIsSubmitting(false);
     setSubmitted(true);
@@ -147,7 +147,7 @@ export const WaitlistSection: React.FC = () => {
               You're on the List! 🎉
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Welcome to the Safekab early access community. We'll notify you as soon as we launch at your university.
+              Welcome to the Echos early access community. We'll notify you as soon as we launch at your university.
             </p>
             <p className="text-sm text-gray-500">
               Registered as: <span className="font-semibold">{values.email}</span>

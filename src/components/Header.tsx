@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './Button';
+import echosLogo from '/echos-logo.png';
 
 interface HeaderProps {
   onJoinWaitlist: () => void;
@@ -58,10 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onJoinWaitlist }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="bg-primary group-hover:bg-accent p-2 rounded-lg transition-colors">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">Safekab</span>
+            <img src={echosLogo} alt="Echos" className="h-9 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
