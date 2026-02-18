@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onJoinWaitlist }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <img src={echosLogo} alt="Echos" className="h-9 w-auto" />
+            <img src={echosLogo} alt="Echos" className="h-20 w-auto -m-2" />
           </a>
 
           {/* Desktop Navigation */}
